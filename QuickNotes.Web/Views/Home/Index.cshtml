@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";    
+}
+
+<div class="text-center mt-5">
+  <h1 class="display-3 fw-bold">QuickNotes</h1>
+  <p class="lead mb-4">The notes app.</p>
+
+  @if (!User.Identity?.IsAuthenticated ?? true)
+  {
+  <div class="mt-4">
+    <a class="btn btn-primary btn-lg me-2" asp-controller="Account" asp-action="Register">Get Started</a>
+    <a class="btn btn-outline-dark btn-lg" asp-controller="Account" asp-action="Login">Login</a>
+  </div>
+  }
+  else
+  {
+  <div class="mt-4">
+    <a class="btn btn-primary btn-lg" asp-controller="Notes" asp-action="Index">Go to My Notes</a>
+  </div>
+  }
+</div>
